@@ -12,6 +12,7 @@
 #include "Enemy.h"
 #include "Enemy2.h"
 #include "Enemy3.h"
+#include "Enemy4.h"
 
 
 /// <summary>
@@ -63,6 +64,9 @@ private: // メンバ変数
 
 	Enemy3* enemy3_ = nullptr;
 	Model* enemymodel3 = nullptr;
+
+	Enemy4* enemy4_ = nullptr;
+	Model* enemymodel4 = nullptr;
 
 	WorldTransform worldTransform_;
 
