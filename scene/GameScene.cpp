@@ -1,10 +1,14 @@
 ﻿#include "GameScene.h"
 #include "TextureManager.h"
 #include <cassert>
+#include"Enemy.h"
 
 GameScene::GameScene() {}
 
-GameScene::~GameScene() {}
+GameScene::~GameScene() {
+	delete enemymodel;
+	delete enemy_;
+}
 
 void GameScene::Initialize() {
 
@@ -12,6 +16,15 @@ void GameScene::Initialize() {
 	input_ = Input::GetInstance();
 	audio_ = Audio::GetInstance();
 	debugText_ = DebugText::GetInstance();
+	
+
+
+	enemymodel = Model::Create();
+	//enemy_->EnemyInitialize( enemymodel,textureHandle_);
+	
+	viewProjection_.Initialize();
+	enemy_ = new Enemy();
+	enemy_->EnemyInitialize(enemymodel, textureHandle_);
 }
 
 void GameScene::Update() {}
@@ -42,6 +55,7 @@ void GameScene::Draw() {
 	/// <summary>
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
+	enemy_->EnemyDraw(viewProjection_);
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
