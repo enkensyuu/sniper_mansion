@@ -1,13 +1,15 @@
 ﻿#include "GameScene.h"
 #include "TextureManager.h"
 #include <cassert>
-#include"Enemy.h"
+
 
 GameScene::GameScene() {}
 
 GameScene::~GameScene() {
 	delete enemymodel;
 	delete enemy_;
+	delete enemymodel2;
+	delete enemy2_;
 }
 
 void GameScene::Initialize() {
@@ -20,11 +22,12 @@ void GameScene::Initialize() {
 
 
 	enemymodel = Model::Create();
-	//enemy_->EnemyInitialize( enemymodel,textureHandle_);
-	
+	enemymodel2 = Model::Create();
 	viewProjection_.Initialize();
 	enemy_ = new Enemy();
+	enemy2_ = new Enemy2();
 	enemy_->EnemyInitialize(enemymodel, textureHandle_);
+	enemy2_->EnemyInitialize(enemymodel, textureHandle_);
 }
 
 void GameScene::Update() {}
@@ -56,6 +59,7 @@ void GameScene::Draw() {
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
 	enemy_->EnemyDraw(viewProjection_);
+	enemy2_->EnemyDraw(viewProjection_);
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
