@@ -9,7 +9,9 @@ GameScene::~GameScene() {
 	delete enemymodel;
 	delete enemy_;
 	delete enemymodel2;
+	delete enemymodel3;
 	delete enemy2_;
+	delete enemy3_;
 }
 
 void GameScene::Initialize() {
@@ -20,14 +22,20 @@ void GameScene::Initialize() {
 	debugText_ = DebugText::GetInstance();
 	
 
-
+#pragma region Enemy
 	enemymodel = Model::Create();
 	enemymodel2 = Model::Create();
+	enemymodel3 = Model::Create();
 	viewProjection_.Initialize();
 	enemy_ = new Enemy();
 	enemy2_ = new Enemy2();
+	enemy3_ = new Enemy3();
 	enemy_->EnemyInitialize(enemymodel, textureHandle_);
 	enemy2_->EnemyInitialize(enemymodel, textureHandle_);
+	enemy3_->EnemyInitialize(enemymodel, textureHandle_);
+#pragma endregion
+
+	
 }
 
 void GameScene::Update() {}
@@ -60,6 +68,7 @@ void GameScene::Draw() {
 	/// </summary>
 	enemy_->EnemyDraw(viewProjection_);
 	enemy2_->EnemyDraw(viewProjection_);
+	enemy3_->EnemyDraw(viewProjection_);
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
