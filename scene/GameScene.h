@@ -9,13 +9,15 @@
 #include "Sprite.h"
 #include "ViewProjection.h"
 #include "WorldTransform.h"
+#include "Player.h"
+#include <DirectXMath.h>
 
 /// <summary>
 /// ゲームシーン
 /// </summary>
 class GameScene {
 
-  public: // メンバ関数
+public: // メンバ関数
 	/// <summary>
 	/// コンストクラタ
 	/// </summary>
@@ -41,11 +43,21 @@ class GameScene {
 	/// </summary>
 	void Draw();
 
-  private: // メンバ変数
+private: // メンバ変数
 	DirectXCommon* dxCommon_ = nullptr;
 	Input* input_ = nullptr;
 	Audio* audio_ = nullptr;
 	DebugText* debugText_ = nullptr;
+
+	Model* playermodel_ = nullptr;
+
+	Sprite* sprite_ = nullptr;
+
+	uint32_t playertextureHandle_ = 0u;
+
+	Player* player_ = nullptr;
+
+	ViewProjection viewProjection_;
 
 	/// <summary>
 	/// ゲームシーン用
