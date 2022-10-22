@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -99,6 +99,14 @@
     <ClCompile Include="base\DirectXCommon.cpp" />
     <ClCompile Include="base\TextureManager.cpp" />
     <ClCompile Include="base\WinApp.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemy2.cpp" />
+    <ClCompile Include="Enemy3.cpp" />
+    <ClCompile Include="Enemy4.cpp" />
+    <ClCompile Include="Enemy5.cpp" />
+    <ClCompile Include="Enemy6.cpp" />
+    <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Procession.cpp" />
@@ -127,6 +135,14 @@
     <ClInclude Include="base\SafeDelete.h" />
     <ClInclude Include="base\TextureManager.h" />
     <ClInclude Include="base\WinApp.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Enemy2.h" />
+    <ClInclude Include="Enemy3.h" />
+    <ClInclude Include="Enemy4.h" />
+    <ClInclude Include="Enemy5.h" />
+    <ClInclude Include="Enemy6.h" />
+    <ClInclude Include="GameSystem.h" />
     <ClInclude Include="input\Input.h" />
     <ClInclude Include="math\MathUtility.h" />
     <ClInclude Include="math\Matrix4.h" />

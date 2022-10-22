@@ -4,6 +4,9 @@
 #include "Input.h"
 #include"ViewProjection.h"
 #include "DebugText.h"
+#include"Bullet.h"
+#include<memory>
+#include<list>
 
 /// <summary>
 /// 自キャラ
@@ -16,7 +19,7 @@ public:
 	/// </summary>
 	/// <param name="model">モデル</param>
 	/// <param name="textuerHandle">テクスチャハンドル</param>
-	void Initialize(Model* model, uint32_t textuerHandle);
+	void Initialize(Model* model, uint32_t textuerHandle,Model*model2);
 
 	/// <summary>
 	///更新
@@ -29,7 +32,14 @@ public:
 	/// <param name="viewProjection">ビュープロジェクション(参照渡し)</param>
 	void Draw(ViewProjection& viewProjection_);
 
-	Vector2 GetWorldPosition();
+	float Radius();
+
+	Vector3 GetWorldPosition();
+
+	void Attack();
+
+	std::list<std::unique_ptr<Bullet>>bullet_;
+	const std::list<std::unique_ptr<Bullet>>& GetBullets() { return bullets_; }
 
 private:
 	Input* input_ = nullptr;
@@ -44,10 +54,19 @@ private:
 
 	// モデル
 	Model* model_ = nullptr;
+	Model* model2_ = nullptr;
 
 	// テクスチャハンドル
 	uint32_t textureHandle_ = 0u;
 
 	int HeightFlag;
 	int WidthFlag;
+
+	float ReloadTime;
+
+	bool TriggerFlag;
+
+	float radius = 1.0f;
+
+	std::list<std::unique_ptr<Bullet>> bullets_;
 };
