@@ -21,6 +21,8 @@ GameScene::~GameScene() {
 	delete enemy4_;
 	delete enemy5_;
 	delete enemy6_;
+	delete mansion_;
+	delete mansionmodel_;
 }
 
 void GameScene::Initialize() {
@@ -29,9 +31,6 @@ void GameScene::Initialize() {
 	input_ = Input::GetInstance();
 	audio_ = Audio::GetInstance();
 	debugText_ = DebugText::GetInstance();
-
-	playertextureHandle_ = TextureManager::Load("sniper.png");
-	//textureHandle_ = TextureManager::Load("sniper.png");
 
 	playermodel_ = Model::Create();
 
@@ -44,40 +43,42 @@ void GameScene::Initialize() {
 	enemymodel5 = Model::Create();
 	enemymodel6 = Model::Create();
 
-	sprite_ = Sprite::Create(playertextureHandle_, { 0,0 });
+	mansionmodel_ = Model::CreateFromOBJ("Builbing", true);
+	
 
 	viewProjection_.Initialize();
 	player_ = new Player();
-	player_->Initialize(playermodel_, playertextureHandle_,bulletmodel_);
+	player_->Initialize(playermodel_, bulletmodel_);
+
+	mansion_ = new Mansion();
+	mansion_->Initialize(mansionmodel_);
 
 #pragma region Enemy
-	
-	viewProjection_.Initialize();
-	enemy_ = new Enemy();
-	enemy2_ = new Enemy2();
-	enemy3_ = new Enemy3();
-	enemy4_ = new Enemy4();
-	enemy5_ = new Enemy5();
-	enemy6_ = new Enemy6();
-	enemy_->EnemyInitialize(enemymodel, textureHandle_);
-	enemy2_->EnemyInitialize(enemymodel, textureHandle_);
-	enemy3_->EnemyInitialize(enemymodel, textureHandle_);
-	enemy4_->EnemyInitialize(enemymodel, textureHandle_);
-	enemy5_->EnemyInitialize(enemymodel, textureHandle_);
-	enemy6_->EnemyInitialize(enemymodel, textureHandle_);
-#pragma endregion
 
+	enemy_ = new Enemy();
+	enemy_->EnemyInitialize(enemymodel, textureHandle_, Ransuu);
+
+	enemy2_ = new Enemy2();
+	enemy2_->EnemyInitialize(enemymodel2, textureHandle_);
+
+	enemy3_ = new Enemy3();
+	enemy3_->EnemyInitialize(enemymodel3, textureHandle_);
+
+	enemy4_ = new Enemy4();
+	enemy4_->EnemyInitialize(enemymodel4, textureHandle_);
+
+	enemy5_ = new Enemy5();
+	enemy5_->EnemyInitialize(enemymodel5, textureHandle_);
+
+	enemy6_ = new Enemy6();
+	enemy6_->EnemyInitialize(enemymodel6, textureHandle_);
+#pragma endregion
 
 }
 
 void GameScene::Update() {
 	player_->Update();
-	Vector2 position = sprite_->GetPosition();
-
-	position.x = player_->GetWorldPosition().x;
-	position.y = player_->GetWorldPosition().y;
-
-	sprite_->SetPosition(position);
+	enemy_->EnemyUpdate();
 }
 
 void GameScene::Draw() {
@@ -92,7 +93,7 @@ void GameScene::Draw() {
 	/// <summary>
 	/// ここに背景スプライトの描画処理を追加できる
 	/// </summary>
-
+	//player_->SpriteDraw();
 	// スプライト描画後処理
 	Sprite::PostDraw();
 	// 深度バッファクリア
@@ -106,12 +107,14 @@ void GameScene::Draw() {
 	/// <summary>
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
+	//player_->ModelDraw(viewProjection_);
 	enemy_->EnemyDraw(viewProjection_);
 	enemy2_->EnemyDraw(viewProjection_);
 	enemy3_->EnemyDraw(viewProjection_);
 	enemy4_->EnemyDraw(viewProjection_);
 	enemy5_->EnemyDraw(viewProjection_);
 	enemy6_->EnemyDraw(viewProjection_);
+	mansion_->Draw(viewProjection_);
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
 #pragma endregion
@@ -123,7 +126,7 @@ void GameScene::Draw() {
 	/// <summary>
 	/// ここに前景スプライトの描画処理を追加できる
 	/// </summary>
-	sprite_->Draw();
+
 	// デバッグテキストの描画
 	debugText_->DrawAll(commandList);
 	//

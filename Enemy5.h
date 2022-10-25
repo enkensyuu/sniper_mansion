@@ -7,7 +7,7 @@
 #include "Model.h"
 #include "TextureManager.h"
 
-class Enemy5 :private Enemy
+class Enemy5:private Enemy
 {
 public:
 	void EnemyInitialize(Model* model, uint32_t textureHandle);
@@ -19,6 +19,4 @@ public:
 	float Radius();
 
 	Vector3 GetWorldPosition();
-
-	int Live() { return LiveFlag; }
 };

@@ -19,6 +19,4 @@ public:
 	float Radius();
 
 	Vector3 GetWorldPosition();
-
-	int Live() { return LiveFlag; }
 };

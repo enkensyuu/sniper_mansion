@@ -1,6 +1,7 @@
 #include"Enemy2.h"
 #include "Audio.h"
 #include<cassert>
+#include"Procession.h"
 
 void Enemy2::EnemyInitialize(Model* model, uint32_t textureHandle)
 {
@@ -14,12 +15,15 @@ void Enemy2::EnemyInitialize(Model* model, uint32_t textureHandle)
 	//worldTransformEnemy_.scale_ = {0.5f, 0.5f, 0.5f};
 
 	worldTransform_.Initialize();
-	//worldTransformEnemy_.translation_ = { 100,10,10 };
+	worldTransform_.translation_ = { 100,10,10 };
+
+	worldTransform_.matWorld_ = Mat_Identity();
+	worldTransform_.matWorld_ = MatWorld(worldTransform_.scale_, worldTransform_.rotation_, worldTransform_.translation_);
+	worldTransform_.TransferMatrix();
 }
 
 void Enemy2::EnemyUpdate()
 {
-	//worldTransformEnemy_.TransferMatrix();
 }
 
 void Enemy2::EnemyBorn()
@@ -38,7 +42,6 @@ void Enemy2::EnemyDraw(ViewProjection& viewProjection)
 
 void Enemy2::OnCollision()
 {
-	LiveFlag = 0;
 }
 
 float Enemy2::Radius()

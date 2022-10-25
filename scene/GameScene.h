@@ -15,6 +15,7 @@
 #include "Enemy4.h"
 #include "Enemy5.h"
 #include "Enemy6.h"
+#include"Mansion.h"
 
 /// <summary>
 /// ゲームシーン
@@ -55,9 +56,11 @@ private: // メンバ変数
 
 	Model* playermodel_ = nullptr;
 
+	Mansion* mansion_ = nullptr;
+	Model* mansionmodel_ = nullptr;
+
 	Sprite* sprite_ = nullptr;
 
-	uint32_t playertextureHandle_ = 0u;
 	uint32_t textureHandle_ = 0u;
 
 	Player* player_ = nullptr;
@@ -84,6 +87,8 @@ private: // メンバ変数
 
 	Enemy6* enemy6_ = nullptr;
 	Model* enemymodel6 = nullptr;
+
+	bool Ransuu;
 
 	/// <summary>
 	/// ゲームシーン用

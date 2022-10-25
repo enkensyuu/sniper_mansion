@@ -108,6 +108,7 @@
     <ClCompile Include="Enemy6.cpp" />
     <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mansion.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Procession.cpp" />
     <ClCompile Include="scene\GameScene.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Enemy6.h" />
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="input\Input.h" />
+    <ClInclude Include="Mansion.h" />
     <ClInclude Include="math\MathUtility.h" />
     <ClInclude Include="math\Matrix4.h" />
     <ClInclude Include="math\Vector2.h" />

@@ -8,14 +8,8 @@
 #include "Sprite.h"
 #include "ViewProjection.h"
 #include "WorldTransform.h"
-#include"Bullet.h"
-#include<memory>
-#include<list>
 
-/// <summary>
-/// 自キャラ
-/// </summary>
-class Player
+class Mansion
 {
 public:
 	/// <summary>
@@ -23,7 +17,7 @@ public:
 	/// </summary>
 	/// <param name="model">モデル</param>
 	/// <param name="textuerHandle">テクスチャハンドル</param>
-	void Initialize(Model* model,Model*model2);
+	void Initialize(Model* model);
 
 	/// <summary>
 	///更新
@@ -34,18 +28,7 @@ public:
 	///描画
 	/// </summary>
 	/// <param name="viewProjection">ビュープロジェクション(参照渡し)</param>
-	void ModelDraw(ViewProjection& viewProjection_);
-
-	void SpriteDraw();
-
-	float Radius();
-
-	Vector3 GetWorldPosition();
-
-	void Attack();
-
-	std::list<std::unique_ptr<Bullet>>bullet_;
-	const std::list<std::unique_ptr<Bullet>>& GetBullets() { return bullets_; }
+	void Draw(ViewProjection& viewProjection_);
 
 
 private:
@@ -65,17 +48,4 @@ private:
 
 	// テクスチャハンドル
 	uint32_t textureHandle_ = 0u;
-
-	uint32_t playertextureHandle_ = 0u;
-
-	int HeightFlag;
-	int WidthFlag;
-
-	float ReloadTime;
-
-	bool TriggerFlag;
-
-	float radius = 1.0f;
-
-	std::list<std::unique_ptr<Bullet>> bullets_;
 };

@@ -1,6 +1,7 @@
 #include"Enemy4.h"
 #include "Audio.h"
 #include<cassert>
+#include"Procession.h"
 
 void Enemy4::EnemyInitialize(Model* model, uint32_t textureHandle)
 {
@@ -14,7 +15,11 @@ void Enemy4::EnemyInitialize(Model* model, uint32_t textureHandle)
 	//worldTransformEnemy_.scale_ = {0.5f, 0.5f, 0.5f};
 
 	worldTransform_.Initialize();
-	//worldTransformEnemy_.translation_ = { 100,10,10 };
+	worldTransform_.translation_ = { 0,10,0 };
+
+	worldTransform_.matWorld_ = Mat_Identity();
+	worldTransform_.matWorld_ = MatWorld(worldTransform_.scale_, worldTransform_.rotation_, worldTransform_.translation_);
+	worldTransform_.TransferMatrix();
 }
 
 void Enemy4::EnemyUpdate()
@@ -38,7 +43,6 @@ void Enemy4::EnemyDraw(ViewProjection& viewProjection)
 
 void Enemy4::OnCollision()
 {
-	LiveFlag = 0;
 }
 
 float Enemy4::Radius()
