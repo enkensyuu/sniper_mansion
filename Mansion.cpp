@@ -2,12 +2,18 @@
 #include<cassert>
 #include"Procession.h"
 
-void Mansion::Initialize(Model* model)
+void Mansion::Initialize(Model* model, Model* model2, Model* model3, Model* model4)
 {
 	// NULLポインタチェック
-	assert(model);
+	assert(model1);
+	assert(model2);
+	assert(model3);
+	assert(model4);
 
 	model_ = model;
+	model2_ = model2;
+	model3_ = model3;
+	model4_ = model4;
 
 	// シングルトンインスタンスを取得する
 	input_ = Input::GetInstance();
@@ -33,4 +39,7 @@ void Mansion::Update()
 void Mansion::Draw(ViewProjection& viewProjection_)
 {
 	model_->Draw(worldTransform_, viewProjection_);
+	model2_->Draw(worldTransform_, viewProjection_);
+	model3_->Draw(worldTransform_, viewProjection_);
+	model4_->Draw(worldTransform_, viewProjection_);
 }

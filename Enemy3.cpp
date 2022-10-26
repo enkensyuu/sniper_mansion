@@ -3,14 +3,11 @@
 #include<cassert>
 #include"Procession.h"
 
-void Enemy3::EnemyInitialize(Model* model, uint32_t textureHandle)
+void Enemy3::EnemyInitialize(Model* model)
 {
 	assert(model);
 
 	model_ = model;
-
-	textureHandleEnemy_ = textureHandle;
-	textureHandleEnemy_ = TextureManager::Load("Enemy.png");
 
 	//worldTransformEnemy_.scale_ = {0.5f, 0.5f, 0.5f};
 
@@ -38,7 +35,7 @@ void Enemy3::EnemyBorn()
 void Enemy3::EnemyDraw(ViewProjection& viewProjection)
 {
 
-	model_->Draw(worldTransform_, viewProjection, textureHandleEnemy_);
+	model_->Draw(worldTransform_, viewProjection);
 }
 
 void Enemy3::OnCollision()

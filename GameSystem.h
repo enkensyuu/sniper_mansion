@@ -9,7 +9,6 @@
 #include "Enemy3.h";
 #include "Enemy4.h";
 #include "Enemy5.h";
-#include "Enemy6.h";
 
 class GameSystem
 {
@@ -46,6 +45,5 @@ private:
 	Enemy3* enemy3_ = nullptr;
 	Enemy4* enemy4_ = nullptr;
 	Enemy5* enemy5_ = nullptr;
-	Enemy6* enemy6_ = nullptr;
 
 };

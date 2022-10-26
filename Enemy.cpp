@@ -5,14 +5,11 @@
 #include<time.h>
 #include"Procession.h"
 
-void Enemy::EnemyInitialize(Model* model, uint32_t textureHandle, bool ransuu)
+void Enemy::EnemyInitialize(Model* model,bool ransuu)
 {
 	assert(model);
 
 	model_ = model;
-
-	textureHandleEnemy_ = textureHandle;
-	textureHandleEnemy_ = TextureManager::Load("Enemy.png");
 
 	worldTransform_.Initialize();
 
@@ -38,7 +35,7 @@ void Enemy::EnemyBorn()
 void Enemy::EnemyDraw(ViewProjection& viewProjection)
 {
 
-	model_->Draw(worldTransform_, viewProjection, textureHandleEnemy_);
+	model_->Draw(worldTransform_, viewProjection);
 }
 
 void Enemy::OnCollision()

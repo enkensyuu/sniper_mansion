@@ -14,7 +14,6 @@
 #include "Enemy3.h"
 #include "Enemy4.h"
 #include "Enemy5.h"
-#include "Enemy6.h"
 #include"Mansion.h"
 
 /// <summary>
@@ -57,7 +56,10 @@ private: // メンバ変数
 	Model* playermodel_ = nullptr;
 
 	Mansion* mansion_ = nullptr;
-	Model* mansionmodel_ = nullptr;
+	Model* DODAImodel_ = nullptr;
+	Model* GARASUmodel_ = nullptr;
+	Model* HASIRA_YUKAmodel_ = nullptr;
+	Model* SOTO_WAKUmodel_ = nullptr;
 
 	Sprite* sprite_ = nullptr;
 
@@ -84,9 +86,6 @@ private: // メンバ変数
 
 	Enemy5* enemy5_ = nullptr;
 	Model* enemymodel5 = nullptr;
-
-	Enemy6* enemy6_ = nullptr;
-	Model* enemymodel6 = nullptr;
 
 	bool Ransuu;
 

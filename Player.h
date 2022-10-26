@@ -25,6 +25,8 @@ public:
 	/// <param name="textuerHandle">テクスチャハンドル</param>
 	void Initialize(Model* model,Model*model2);
 
+
+
 	/// <summary>
 	///更新
 	/// </summary>
@@ -34,20 +36,22 @@ public:
 	///描画
 	/// </summary>
 	/// <param name="viewProjection">ビュープロジェクション(参照渡し)</param>
-	void ModelDraw(ViewProjection& viewProjection_);
+	void Draw(ViewProjection& viewProjection_);
 
-	void SpriteDraw();
+	void DrawUI();
 
 	float Radius();
 
 	Vector3 GetWorldPosition();
+
+	Vector3 ReticlePosition();
 
 	void Attack();
 
 	std::list<std::unique_ptr<Bullet>>bullet_;
 	const std::list<std::unique_ptr<Bullet>>& GetBullets() { return bullets_; }
 
-
+	std::unique_ptr<Sprite> sprite2DReticle_;
 private:
 	Input* input_ = nullptr;
 	DebugText* debugText_ = nullptr;
@@ -61,12 +65,12 @@ private:
 	// ワールド変換データ
 	WorldTransform worldTransform_;
 
+	WorldTransform worldTransform3DReticle_;
+
 	ViewProjection viewProjection_;
 
 	// テクスチャハンドル
-	uint32_t textureHandle_ = 0u;
-
-	uint32_t playertextureHandle_ = 0u;
+	uint32_t textureReticle= 0u;
 
 	int HeightFlag;
 	int WidthFlag;

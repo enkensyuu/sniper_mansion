@@ -17,7 +17,7 @@ public:
 	/// </summary>
 	/// <param name="model">モデル</param>
 	/// <param name="textuerHandle">テクスチャハンドル</param>
-	void Initialize(Model* model);
+	void Initialize(Model* model, Model* model2, Model* model3, Model* model4);
 
 	/// <summary>
 	///更新
@@ -40,6 +40,8 @@ private:
 	// モデル
 	Model* model_ = nullptr;
 	Model* model2_ = nullptr;
+	Model* model3_ = nullptr;
+	Model* model4_ = nullptr;
 
 	// ワールド変換データ
 	WorldTransform worldTransform_;

@@ -11,12 +11,11 @@ class Enemy
 protected:
 	int Enemyflag_ = 0;
 	float radius = 1.0f;
-	uint32_t textureHandleEnemy_ = 0u;
 	Model* model_ = nullptr;
 	WorldTransform worldTransform_;
 
 public:
-	void EnemyInitialize(Model* model, uint32_t textureHandle, bool ransuu);
+	void EnemyInitialize(Model* model, bool ransuu);
 	void EnemyUpdate();
 	void EnemyBorn();
 	void EnemyDraw(ViewProjection& viewProjection);

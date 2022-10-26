@@ -10,7 +10,7 @@
 class Enemy5:private Enemy
 {
 public:
-	void EnemyInitialize(Model* model, uint32_t textureHandle);
+	void EnemyInitialize(Model* model);
 	void EnemyUpdate();
 	//void EnemyMove();
 	void EnemyBorn();
