@@ -25,8 +25,6 @@ public:
 	/// <param name="textuerHandle">テクスチャハンドル</param>
 	void Initialize(Model* model,Model*model2);
 
-
-
 	/// <summary>
 	///更新
 	/// </summary>
@@ -44,14 +42,10 @@ public:
 
 	Vector3 GetWorldPosition();
 
-	Vector3 ReticlePosition();
-
 	void Attack();
 
 	std::list<std::unique_ptr<Bullet>>bullet_;
 	const std::list<std::unique_ptr<Bullet>>& GetBullets() { return bullets_; }
-
-	std::unique_ptr<Sprite> sprite2DReticle_;
 private:
 	Input* input_ = nullptr;
 	DebugText* debugText_ = nullptr;
@@ -70,7 +64,7 @@ private:
 	ViewProjection viewProjection_;
 
 	// テクスチャハンドル
-	uint32_t textureReticle= 0u;
+	uint32_t textureHandle_= 0u;
 
 	int HeightFlag;
 	int WidthFlag;
@@ -80,6 +74,5 @@ private:
 	bool TriggerFlag;
 
 	float radius = 1.0f;
-
 	std::list<std::unique_ptr<Bullet>> bullets_;
 };

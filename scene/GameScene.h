@@ -1,13 +1,15 @@
 ﻿#pragma once
 #include "Audio.h"
-#include "DirectXCommon.h"
 #include "DebugText.h"
+#include "DirectXCommon.h"
 #include "Input.h"
 #include "Model.h"
 #include "SafeDelete.h"
 #include "Sprite.h"
 #include "ViewProjection.h"
 #include "WorldTransform.h"
+#include <DirectXMath.h>
+#include"DebugCamera.h"
 #include "Player.h"
 #include "Enemy.h"
 #include "Enemy2.h"
@@ -46,6 +48,8 @@ public: // メンバ関数
 	/// 描画
 	/// </summary>
 	void Draw();
+
+	void OnCollision();
 
 private: // メンバ変数
 	DirectXCommon* dxCommon_ = nullptr;
@@ -87,7 +91,20 @@ private: // メンバ変数
 	Enemy5* enemy5_ = nullptr;
 	Model* enemymodel5 = nullptr;
 
-	bool Ransuu;
+	// テクスチャハンドル
+	uint32_t textureHandle1_ = 0;
+	uint32_t textureHandle2_ = 0;
+	uint32_t textureHandle3_ = 0;
+
+	Sprite* sprite1_ = nullptr;
+	Sprite* sprite2_ = nullptr;
+	Sprite* sprite3_ = nullptr;
+	int Ransuu;
+
+	int timer = 600;
+	int timer2 = 60;
+
+	int scene = 0;
 
 	/// <summary>
 	/// ゲームシーン用

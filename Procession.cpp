@@ -128,3 +128,16 @@ Vector3 Normalize(Vector3& vector)
 	}
 	return vector;
 }
+
+Matrix4 Viewport(Vector3 Vp, Vector3 Offset)
+{
+	Matrix4 Vport;
+	Vport.m[0][0] = Vp.x / 2;
+	Vport.m[1][1] = -Vp.y / 2;
+	Vport.m[2][2] = 1;
+	Vport.m[3][0] = Vp.x / 2 + Offset.x;
+	Vport.m[3][1] = Vp.y / 2 + Offset.y;
+	Vport.m[3][3] = 1;
+	
+	return Vport;
+}

@@ -43,6 +43,10 @@ private:
 	Model* model3_ = nullptr;
 	Model* model4_ = nullptr;
 
+	int HeightFlag = 1;
+	int WidthFlag = 1;
+	int time = 360;
+
 	// ワールド変換データ
 	WorldTransform worldTransform_;
 

@@ -20,3 +20,5 @@ float Length(Vector3 vector);
 Vector3 Vectornorm(Vector3 vec1, Vector3 vec2);
 
 Vector3 Normalize(Vector3& vector);
+
+Matrix4 Viewport(Vector3 Vp,Vector3 Offset);

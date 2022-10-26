@@ -6,17 +6,19 @@
 #include "WorldTransform.h"
 #include "Model.h"
 #include "TextureManager.h"
+#include"Input.h"
 
 class Enemy5:private Enemy
 {
 public:
-	void EnemyInitialize(Model* model);
+	void EnemyInitialize(Model* model,int ransuu);
 	void EnemyUpdate();
 	//void EnemyMove();
 	void EnemyBorn();
 	void EnemyDraw(ViewProjection& viewProjection);
 	void OnCollision();
 	float Radius();
+	int IsDead() const { return isDead_; }
 
 	Vector3 GetWorldPosition();
 };
