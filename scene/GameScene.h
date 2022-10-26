@@ -80,4 +80,6 @@ private: // メンバ変数
 
 	ViewProjection viewProjection_;
 
+	int scene = 0;
+
 };

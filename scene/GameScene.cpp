@@ -3,6 +3,13 @@
 #include <cassert>
 
 
+
+
+
+
+
+
+
 GameScene::GameScene() {}
 
 GameScene::~GameScene() {
@@ -53,9 +60,55 @@ void GameScene::Initialize() {
 	
 }
 
-void GameScene::Update() {}
+void GameScene::Update() {
+	switch (scene)
+	{
+	case 0:
+		break;
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	case 6:
+		break;
+
+	}
+}
 
 void GameScene::Draw() {
+	switch (scene)
+	{
+	case 0:
+
+		break;
+	case 1:
+
+		break;
+	case 2:
+
+		break;
+	case 3:
+
+		break;
+	case 4
+		:
+		break;
+	case 5:
+
+		break;
+	case 6:
+
+		break;
+
+	}
+
+
 
 	// コマンドリストの取得
 	ID3D12GraphicsCommandList* commandList = dxCommon_->GetCommandList();
